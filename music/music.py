@@ -1,10 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import requests
 import os
 import sys
 import time
 import json
+
+def clear():
+    os.system('clear')
 
 
 def load_json():
@@ -89,12 +91,14 @@ def activation(songs):
     driver = webdriver.Chrome(PATH)
 
     driver.get(songs[song_name][1])
+    time.sleep(3)
     play = driver.find_element_by_xpath('/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[4]/div[1]/div/div[1]/div/div/div/ytd-player/div/div/div[5]/button')
 
-    time.sleep(3)
     play.click()
     driver.minimize_window()
+    clear()
     input('Next? (ENTER or CTRL + c)')
+    driver.close()
     
 
 
@@ -110,7 +114,6 @@ def main():
         songs = load_json()
 
     
-    # song_picker(songs)
     activation(songs)
 
 while True:
