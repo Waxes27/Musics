@@ -87,8 +87,10 @@ def song_picker(songs):
 def activation(songs):
     PATH = f"{os.environ['HOME']}/Web_Crawler/.chromedriver"
     song_name = song_picker(songs)
-
+    
+    clear()
     driver = webdriver.Chrome(PATH)
+    clear()
 
     driver.get(songs[song_name][1])
     time.sleep(3)
@@ -96,7 +98,7 @@ def activation(songs):
 
     play.click()
     driver.minimize_window()
-    clear()
+    # clear()
     input('Next? (ENTER or CTRL + c)')
     driver.close()
     
