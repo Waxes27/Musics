@@ -18,7 +18,7 @@ def load_json():
     try:
         return open_json
     except NameError:
-        with open('music.json', 'r') as file_:
+        with open(f"{os.environ['HOME']}/.Music/music/music.json", 'r') as file_:
             return json.load(file_)
 
 
@@ -36,16 +36,16 @@ def json_init():
 
 }
     try:
-        with open('music.json', 'r') as file_:
+        with open(f"{os.environ['HOME']}/.Music/music/music.json", 'r') as file_:
             open_json = json.load(file_)
     except json.decoder.JSONDecodeError:
-        with open('music.json', 'w') as temp:
+        with open(f"{os.environ['HOME']}/.Music/music/music.json", 'w') as temp:
             songs = json.dumps(songs, indent =2)
             temp.write(f"{songs}\n")
     try:
         return open_json
     except NameError:
-        with open('music.json', 'r') as file_:
+        with open(f"{os.environ['HOME']}/.Music/music/music.json", 'r') as file_:
             return json.load(file_)
 
 
@@ -65,7 +65,7 @@ def user_in():
     
     songs.update({header : [body, link]})
 
-    with open('music.json', 'w') as temp:
+    with open(f"{os.environ['HOME']}/.Music/music/music.json", 'w') as temp:
             songs = json.dumps(songs, indent =2)
             temp.write(f"{songs}\n")
 
