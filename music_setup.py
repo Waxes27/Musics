@@ -8,6 +8,7 @@ bashrc1 = open(f"{os.environ['HOME']}/.bashrc", 'r')
 
 print('Starting... Do not interrupt process')
 value = subprocess.getoutput("""
+pip install selenium
 rm -rf ~/.Music
 mkdir ~/.Music
 git clone https://github.com/Waxes27/Musics.git ~/.Music
